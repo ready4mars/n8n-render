@@ -4,7 +4,7 @@ services:
     env: docker
     region: oregon # optional (defaults to oregon)
     plan: standard # optional (defaults to starter)
-    branch: master # optional (defaults to master)
+    branch: main # optional (defaults to master)
     # dockerCommand: ./webdis.sh # optional (defaults to Dockerfile command)
     numInstances: 1
     # healthCheckPath: /
