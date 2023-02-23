@@ -1,13 +1,13 @@
 services:
   - type: web
     name: n8n
-    image: n8nio/n8n:0.145.1
     env: docker
     region: oregon # optional (defaults to oregon)
     plan: standard # optional (defaults to starter)
     branch: master # optional (defaults to master)
+    # dockerCommand: ./webdis.sh # optional (defaults to Dockerfile command)
     numInstances: 1
-    healthCheckPath: /
+    # healthCheckPath: /
     envVars:
       - key: PGHOST
         fromDatabase:
