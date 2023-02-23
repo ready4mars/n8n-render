@@ -1,0 +1,35 @@
+services:
+  - type: web
+    name: n8n
+    env: docker
+    region: oregon # optional (defaults to oregon)
+    plan: standard # optional (defaults to starter)
+    branch: master # optional (defaults to master)
+    # dockerCommand: ./webdis.sh # optional (defaults to Dockerfile command)
+    numInstances: 1
+    healthCheckPath: /
+    envVars:
+      - key: PGHOST
+        fromDatabase:
+          name: n8nDB
+          property: host
+      - key: PGDATABASE
+        fromDatabase:
+          name: n8nDB
+          property: database
+      - key: PGPORT
+        fromDatabase:
+          name: n8nDB
+          property: port
+      - key: PGUSER
+        fromDatabase:
+          name: n8nDB
+          property: user
+      - key: PGPASSWORD
+        fromDatabase:
+          name: n8nDB
+          property: password
+
+databases:
+  - name: n8nDB
+    plan: starter
