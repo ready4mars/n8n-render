@@ -1,7 +1,7 @@
 services:
   - type: web
     name: n8n
-    #image: n8nio/n8n:0.145.1
+    image: n8nio/n8n:0.145.1
     env: docker
     region: oregon # optional (defaults to oregon)
     plan: standard # optional (defaults to starter)
@@ -32,4 +32,4 @@ services:
 
 databases:
   - name: n8nDB
-    plan: free
+    plan: starter
