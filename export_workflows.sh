@@ -2,7 +2,7 @@
 
 : ${EXPORT_DIR:="n8n-$(date +%Y%m%d)"}
 
-: ${DATA_FOLDER="/data/db/"}/n8n:/home/node/.n8n
+: ${DATA_FOLDER:="/data/db"}/n8n:/home/node/.n8n
 
 set -euo
 
