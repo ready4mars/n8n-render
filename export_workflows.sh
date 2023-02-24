@@ -5,6 +5,8 @@
 set -euo
 
 docker run \
+    -p 5678:5678 \
+    -v /.env \
     -e N8N_ENCRYPTION_KEY \
     -e GENERIC_TIMEZONE \
     -e TZ \
