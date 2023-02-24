@@ -8,22 +8,6 @@ services:
     numInstances: 1
     healthCheckPath: /
     envVars:
-      - key: PORT
-        value: "5678"
-      - key: N8N_ENCRYPTION_KEY
-        value: "IMPORTANT"
-      - key: VUE_APP_URL_BASE_API
-        value: "https://n8n.example.com/"
-      - key: WEBHOOK_URL
-        value: "https://api.readyformars.org/"
-      - key: TUNNEL_WEBHOOK_URL
-        value: "https://api.readyformars.org/"
-      - key: GENERIC_TIMEZONE
-        value: "America/Sao_Paulo"
-      - key: TZ
-        value: "America/Sao_Paulo"
-      - key: N8N_LOG_LEVEL
-        value: "verbose"
       - key: PGHOST
         fromDatabase:
           name: n8nDB
