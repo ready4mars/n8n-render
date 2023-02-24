@@ -31,7 +31,7 @@ services:
           property: password
     disk:
       name: n8nDisk
-      mountPath: /data/db
+      mountPath: /data
       sizeGB: 10
 
 databases:
