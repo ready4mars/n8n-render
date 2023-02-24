@@ -24,32 +24,26 @@ services:
         value: "America/Sao_Paulo"
       - key: N8N_LOG_LEVEL
         value: "verbose"
-      - key: DB_TYPE
-        value: "postgresdb"
-      - key: DB_POSTGRESDB_DATABASE
-        fromEnv: POSTGRES_DATABASE
-      - key: DB_POSTGRESDB_HOST
-        fromEnv: POSTGRES_HOST
-      - key: DB_POSTGRESDB_PORT
-        fromEnv: POSTGRES_PORT
-      - key: DB_POSTGRESDB_USER
-        fromEnv: POSTGRES_USER
-      - key: DB_POSTGRESDB_SCHEMA
-        value: "public"
-      - key: DB_POSTGRESDB_PASSWORD
-        fromEnv: POSTGRES_PASSWORD
-      - key: EXECUTIONS_DATA_PRUNE
-        value: "true"
-      - key: EXECUTIONS_DATA_MAX_AGE
-        value: "72"
-      - key: EXECUTIONS_DATA_SAVE_ON_ERROR
-        value: "all"
-      - key: EXECUTIONS_DATA_SAVE_ON_SUCCESS
-        value: "none"
-      - key: EXECUTIONS_DATA_SAVE_ON_PROGRESS
-        value: "false"
-      - key: EXECUTIONS_DATA_SAVE_MANUAL_EXECUTIONS
-        value: "false"
+      - key: PGHOST
+        fromDatabase:
+          name: n8nDB
+          property: host
+      - key: PGDATABASE
+        fromDatabase:
+          name: n8nDB
+          property: database
+      - key: PGPORT
+        fromDatabase:
+          name: n8nDB
+          property: port
+      - key: PGUSER
+        fromDatabase:
+          name: n8nDB
+          property: user
+      - key: PGPASSWORD
+        fromDatabase:
+          name: n8nDB
+          property: password
 
 
 databases:
