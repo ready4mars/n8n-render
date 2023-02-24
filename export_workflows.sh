@@ -2,13 +2,14 @@
 
 : ${EXPORT_DIR:="n8n-$(date +%Y%m%d)"}
 
-: ${DATA_FOLDER:="/data/db"}/n8n:/home/node/.n8n
+: ${DATA_FOLDER:="/data/db"}
 
 set -euo
 
 docker run \
     -p 5678:5678 \
     -v /.env \
+    -v ${DATA_FOLDER}/n8n:/home/node/.n8n \
     -e N8N_ENCRYPTION_KEY \
     -e GENERIC_TIMEZONE \
     -e TZ \
