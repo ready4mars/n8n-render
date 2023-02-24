@@ -7,7 +7,7 @@ services:
     branch: main # optional (defaults to master)
     # dockerCommand: ./webdis.sh # optional (defaults to Dockerfile command)
     numInstances: 1
-    # healthCheckPath: /
+    healthCheckPath: /
     envVars:
       - key: PGHOST
         fromDatabase:
