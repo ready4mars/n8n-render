@@ -2,7 +2,7 @@
 
 : ${EXPORT_DIR:="n8n-$(date +%Y%m%d)"}
 
-: ${DATA_FOLDER:="/data/db"}
+: ${DATA_FOLDER:="/home/node/.n8n"}
 
 set -euo
 
@@ -24,4 +24,4 @@ docker run \
     -u node \
     n8nio/n8n \
     n8n export:workflow --backup --output=/backup/$EXPORT_DIR/ \
-    --data=/data/db
+    --data=/home/node/.n8n
