@@ -2,33 +2,55 @@ services:
   - type: web
     name: n8n
     env: docker
-    region: oregon # optional (defaults to oregon)
-    plan: standard # optional (defaults to starter)
-    branch: main # optional (defaults to master)
-    # dockerCommand: ./webdis.sh # optional (defaults to Dockerfile command)
+    region: oregon
+    plan: standard
+    branch: main
     numInstances: 1
     healthCheckPath: /
     envVars:
-      - key: PGHOST
-        fromDatabase:
-          name: n8nDB
-          property: host
-      - key: PGDATABASE
-        fromDatabase:
-          name: n8nDB
-          property: database
-      - key: PGPORT
-        fromDatabase:
-          name: n8nDB
-          property: port
-      - key: PGUSER
-        fromDatabase:
-          name: n8nDB
-          property: user
-      - key: PGPASSWORD
-        fromDatabase:
-          name: n8nDB
-          property: password
+      - key: PORT
+        value: "5678"
+      - key: N8N_ENCRYPTION_KEY
+        value: "IMPORTANT"
+      - key: VUE_APP_URL_BASE_API
+        value: "https://n8n.example.com/"
+      - key: WEBHOOK_URL
+        value: "https://api.readyformars.org/"
+      - key: TUNNEL_WEBHOOK_URL
+        value: "https://api.readyformars.org/"
+      - key: GENERIC_TIMEZONE
+        value: "America/Sao_Paulo"
+      - key: TZ
+        value: "America/Sao_Paulo"
+      - key: N8N_LOG_LEVEL
+        value: "verbose"
+      - key: DB_TYPE
+        value: "postgresdb"
+      - key: DB_POSTGRESDB_DATABASE
+        fromEnv: POSTGRES_DATABASE
+      - key: DB_POSTGRESDB_HOST
+        fromEnv: POSTGRES_HOST
+      - key: DB_POSTGRESDB_PORT
+        fromEnv: POSTGRES_PORT
+      - key: DB_POSTGRESDB_USER
+        fromEnv: POSTGRES_USER
+      - key: DB_POSTGRESDB_SCHEMA
+        value: "public"
+      - key: DB_POSTGRESDB_PASSWORD
+        fromEnv: POSTGRES_PASSWORD
+      - key: EXECUTIONS_DATA_PRUNE
+        value: "true"
+      - key: EXECUTIONS_DATA_MAX_AGE
+        value: "72"
+      - key: EXECUTIONS_DATA_SAVE_ON_ERROR
+        value: "all"
+      - key: EXECUTIONS_DATA_SAVE_ON_SUCCESS
+        value: "none"
+      - key: EXECUTIONS_DATA_SAVE_ON_PROGRESS
+        value: "false"
+      - key: EXECUTIONS_DATA_SAVE_MANUAL_EXECUTIONS
+        value: "false"
+
 
 databases:
   - name: n8nDB
