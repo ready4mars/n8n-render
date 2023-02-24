@@ -29,6 +29,10 @@ services:
         fromDatabase:
           name: n8nDB
           property: password
+    disk:
+      name: n8nDisk
+      mountPath: /data/db
+      sizeGB: 10
 
 databases:
   - name: n8nDB
