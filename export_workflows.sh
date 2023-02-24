@@ -17,8 +17,8 @@ docker run \
     -e DB_POSTGRESDB_USER \
     -e DB_POSTGRESDB_SCHEMA \
     -e DB_POSTGRESDB_PASSWORD \
-    -e N8N_DATA_FOLDER=/data/db \  # set the data folder path
-    -v /data/db:/root/.n8n \  # mount the data folder as a volume
     -v $EXPORT_ROOT:/backup \
     -u node \
-    n8nio/n8n n8n export:workflow --backup --output=/backup/$EXPORT_DIR/
+    n8nio/n8n \
+    n8n export:workflow --backup --output=/backup/$EXPORT_DIR/ \
+    --data=/data/db
