@@ -3,7 +3,7 @@ services:
     name: n8n
     env: docker
     region: oregon # optional (defaults to oregon)
-    plan: standard # optional (defaults to starter)
+    plan: starter # change to starter for free tier
     branch: main # optional (defaults to master)
     # dockerCommand: ./webdis.sh # optional (defaults to Dockerfile command)
     numInstances: 1
@@ -29,11 +29,7 @@ services:
         fromDatabase:
           name: n8nDB
           property: password
-    disk:
-      name: n8nDisk
-      mountPath: /home/node/.n8n
-      sizeGB: 10
 
 databases:
   - name: n8nDB
-    plan: starter
+    plan: starter # change to starter for free tier
